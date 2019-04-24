@@ -7,9 +7,16 @@
 <body>
 
 <div>
-    <form action="/caps" method="post">
+    <form action="/caps" method="post" enctype="multipart/form-data" >
         <label for="toCapitalize">cap it</label>
         <input type="text" name="toCapitalize">
+
+        <label for="file">Upload a picture:</label>
+
+        <input type="file"
+               id="file" name="file"
+               accept="image/png, image/jpeg">
+
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>

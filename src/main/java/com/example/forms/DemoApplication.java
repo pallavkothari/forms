@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Map;
 
@@ -19,8 +20,8 @@ public class DemoApplication {
 	}
 
 	@PostMapping("/caps")
-    String caps(@RequestParam Map<String, String> requestParams, Map<String, Object> model)  {
-        model.put("output", requestParams.get("toCapitalize").toUpperCase());
+    String caps(@RequestParam Map<String, String> requestParams, Map<String, Object> model, @RequestParam("file") MultipartFile file)  {
+        model.put("output", requestParams.get("toCapitalize").toUpperCase() + " and your file size was " + file.getSize());
         return "out";
     }
 
